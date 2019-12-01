@@ -11,7 +11,8 @@ export default function Navbar() {
             </Link>
             <nav className="Navbar-nav">
                 <Link to="/shop" className="Navbar-nav-item">Shop</Link>
-                <Link to="/shop" className="Navbar-nav-item">Contact</Link>
+                <Link to="/contact" className="Navbar-nav-item">Contact</Link>
+                <Link to="/signin" className="Navbar-nav-item">Sign in</Link>
             </nav>
         </div>
     )
