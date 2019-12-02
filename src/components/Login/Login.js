@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { signInWithGoogle } from '../../firebase/firebase.utils'
 import useInputState from '../../hooks/useInputState'
 import './Login.scss'
@@ -9,6 +9,14 @@ export default function Login() {
     const [email, setEmail, resetEmail] = useInputState("")
     const [password, setPassword, resetPassword] = useInputState("")
     
+    useEffect(() => {
+        return () => {
+            setTimeout(() => {
+                // whatever here
+            }, 3000)
+        }
+    }, [])
+
     const handleSubmit = e => {
         e.preventDefault()
         resetEmail()

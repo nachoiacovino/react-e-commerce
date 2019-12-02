@@ -43,7 +43,7 @@ export default function Register() {
                 <FormInput label="Email" type="email" name="email" value={email} handleChange={setEmail} required />
                 <FormInput label="Password" type="password" name="password" value={password} handleChange={setPassword} required />
                 <FormInput label="Confirm password" type="password" name="confirmPassword" value={confirmPassword} handleChange={setConfirmPassword} required />
-                <CustomButton type="submit">Sign up</CustomButton>
+                <CustomButton type="submit" large>Sign up</CustomButton>
             </form>
         </div>
     )

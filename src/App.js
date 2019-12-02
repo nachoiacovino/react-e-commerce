@@ -31,7 +31,7 @@ const App = _ => {
       <Navbar currentUser={currentUser} />
       <Switch>
         <Route exact path="/" component={Homepage} />
-        <Route exact path="/shop" component={Shop} />
+        <Route exact path="/shop/" component={Shop} />
         <Route exact path="/signin" component={SignIn} />
       </Switch>
     </div>

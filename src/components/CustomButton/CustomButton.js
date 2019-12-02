@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { memo } from 'react'
 import './CustomButton.scss'
 
-export default function CustomButton({ children, isGoogleSignIn, ...props }) {
+export default memo(function CustomButton({ children, isGoogleSignIn, large, ...props }) {
+    console.log(props)
     return (
-        <div className={`CustomButton ${isGoogleSignIn && "googleSignIn"}`} {...props}>
+        <button className={`CustomButton ${isGoogleSignIn && "googleSignIn"} ${large && "large"}`} {...props}>
             {children}
-        </div>
+        </button>
     )
-}
+})
