@@ -22,7 +22,10 @@ const App = _ => {
     }
   }, [])
 
-  console.log(currentUser)
+  useEffect(() => {
+    console.log(currentUser)
+  }, [currentUser])
+
   return (
     <div>
       <Navbar currentUser={currentUser} />
