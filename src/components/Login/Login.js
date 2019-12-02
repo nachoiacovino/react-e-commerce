@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { signInWithGoogle } from '../../firebase/firebase.utils'
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils'
 import useInputState from '../../hooks/useInputState'
 import './Login.scss'
 import FormInput from '../FormInput/FormInput'
@@ -17,10 +17,16 @@ export default function Login() {
         }
     }, [])
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault()
-        resetEmail()
-        resetPassword()
+
+        try {
+            await auth.signInWithEmailAndPassword(email, password)
+            resetEmail()
+            resetPassword()
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     return (
