@@ -1,10 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { auth } from '../../firebase/firebase.utils'
 import { ReactComponent as Logo } from '../../assets/crown.svg'
 import './Navbar.scss'
 
-export default function Navbar({ currentUser }) {
+const Navbar = ({ currentUser }) => {
     return (
         <div className="Navbar">
             <Link to="/" className="logo-container">
@@ -21,3 +22,8 @@ export default function Navbar({ currentUser }) {
         </div>
     )
 }
+
+const mapStateToProps = state => ({ currentUser: state.user.currentUser })
+
+export default connect(mapStateToProps)(Navbar)
+
