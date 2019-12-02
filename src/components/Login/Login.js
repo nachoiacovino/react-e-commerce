@@ -1,4 +1,5 @@
 import React from 'react'
+import { signInWithGoogle } from '../../firebase/firebase.utils'
 import useInputState from '../../hooks/useInputState'
 import './Login.scss'
 import FormInput from '../FormInput/FormInput'
@@ -21,7 +22,10 @@ export default function Login() {
             <form onSubmit={handleSubmit}>
                 <FormInput label="Email" type="email" name="email" value={email} handleChange={setEmail} required />
                 <FormInput label="Password" type="password" name="password" value={password} handleChange={setPassword} required />
-                <CustomButton type="submit">Sign in</CustomButton>
+                <div className="buttons">
+                    <CustomButton type="submit">Sign in</CustomButton>
+                    <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Sign in with Google</CustomButton>
+                </div>
             </form>
         </div>
     )

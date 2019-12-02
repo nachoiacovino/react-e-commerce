@@ -1,9 +1,9 @@
 import React from 'react'
 import './CustomButton.scss'
 
-export default function CustomButton({ children, ...props }) {
+export default function CustomButton({ children, isGoogleSignIn, ...props }) {
     return (
-        <div className="CustomButton" {...props}>
+        <div className={`CustomButton ${isGoogleSignIn && "googleSignIn"}`} {...props}>
             {children}
         </div>
     )
