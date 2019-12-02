@@ -6,15 +6,13 @@ import FormInput from '../FormInput/FormInput'
 import CustomButton from '../CustomButton/CustomButton'
 
 export default function Register() {
-    const [displayName, setDisplayName, resetDisplayName] = useInputState("")
-    const [email, setEmail, resetEmail] = useInputState("")
-    const [password, setPassword, resetPassword] = useInputState("")
-    const [confirmPassword, setConfirmPassword, resetConfirmPassword] = useInputState("")
+    const [displayName, setDisplayName] = useInputState("")
+    const [email, setEmail] = useInputState("")
+    const [password, setPassword] = useInputState("")
+    const [confirmPassword, setConfirmPassword] = useInputState("")
 
     const handleSubmit = async e => {
         e.preventDefault()
-
-        console.log("helloooo")
 
         if (password !== confirmPassword) {
             alert("Password don't match")
@@ -24,11 +22,6 @@ export default function Register() {
         try {
             const { user } = await auth.createUserWithEmailAndPassword(email, password)
             await createUserProfileDocument(user, { displayName })
-            resetDisplayName()
-            resetEmail()
-            resetPassword()
-            resetConfirmPassword()
-
         } catch (error) {
             console.error(error)
         }

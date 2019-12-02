@@ -6,8 +6,8 @@ import FormInput from '../FormInput/FormInput'
 import CustomButton from '../CustomButton/CustomButton'
 
 export default function Login() {
-    const [email, setEmail, resetEmail] = useInputState("")
-    const [password, setPassword, resetPassword] = useInputState("")
+    const [email, setEmail] = useInputState("")
+    const [password, setPassword] = useInputState("")
     
     useEffect(() => {
         return () => {
@@ -22,8 +22,6 @@ export default function Login() {
 
         try {
             await auth.signInWithEmailAndPassword(email, password)
-            resetEmail()
-            resetPassword()
         } catch (error) {
             console.error(error)
         }
