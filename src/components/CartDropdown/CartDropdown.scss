@@ -11,17 +11,16 @@
     right: 40px;
     z-index: 5;
 
+    .empty-message {
+        font-size: 18px;
+        margin: 50px auto;
+    }
+
     .cartItems {
         height: 100%;
         display: flex;
         flex-direction: column;
         overflow-y: auto;
-        // overflow: -moz-scrollbars-none;
-        // -ms-overflow-style: none;
-
-        // &::-webkit-scrollbar {
-        //     width: 0 !important
-        // }
 
         &::-webkit-scrollbar {
             width: 0.25rem;

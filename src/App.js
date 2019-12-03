@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar'
 import Homepage from './pages/Homepage/Homepage'
 import Shop from './pages/Shop/Shop'
 import SignIn from './pages/SignIn/SignIn'
+import Checkout from './pages/Checkout/Checkout'
 import { setCurrentUser } from './redux/user/userActions'
 import { selectCurrentUser } from './redux/user/userSelectors'
 
@@ -29,9 +30,9 @@ const App = ({ currentUser, setCurrentUser }) => {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Homepage} />
-        <Route path="/shop/" component={Shop} />
-        {/* <Route exact path="/signin" component={SignIn} /> */}
+        <Route exact path="/checkout" component={Checkout} />
         <Route exact path="/signin" render={() => currentUser ? <Redirect to="/" /> : <SignIn />} />
+        <Route path="/shop" component={Shop} />
       </Switch>
     </div>
   )
