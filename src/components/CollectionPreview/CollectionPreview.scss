@@ -6,6 +6,16 @@
     .title {
         font-size: 28px;
         margin-bottom: 25px;
+        cursor: pointer;
+
+        &.arrow {
+            margin-left: 0px;
+        }
+
+        &:hover .arrow {
+            transition: all 1s ease-in;
+            margin-left: 5px;
+        }
     }
 
     .preview {

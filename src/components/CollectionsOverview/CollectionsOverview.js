@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import './CollectionsOverview.scss'
 import CollectionPreview from '../CollectionPreview/CollectionPreview'
 import { selectCollectionsForPreview } from '../../redux/shop/shopSelectors'
 
-const CollectionsOverview = ({ collections }) => {
+const CollectionsOverview = ({ collections, history }) => {
+    useEffect(() => {
+        const unlisten = history.listen(() => {
+          window.scrollTo(0, 0)
+        })
+        return () => {
+          unlisten()
+        }
+      }, [history])
+
     return (
         <div className="CollectionsOverview">
             {collections.map(c => 
