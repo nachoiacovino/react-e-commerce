@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
@@ -8,6 +9,7 @@ import Homepage from './pages/Homepage/Homepage'
 import Shop from './pages/Shop/Shop'
 import SignIn from './pages/SignIn/SignIn'
 import { setCurrentUser } from './redux/user/userActions'
+import { selectCurrentUser } from './redux/user/userSelectors'
 
 const App = ({ currentUser, setCurrentUser }) => {
   useEffect(() => {
@@ -35,7 +37,7 @@ const App = ({ currentUser, setCurrentUser }) => {
   )
 }
 
-const mapStateToProps = ({ user }) => ({ currentUser: user.currentUser })
+const mapStateToProps = createStructuredSelector({ currentUser: selectCurrentUser })
 const mapDispatchToProps = dispatch => ({ setCurrentUser: user => dispatch(setCurrentUser(user)) })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
